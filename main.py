@@ -1,4 +1,4 @@
-import scripts.execute as execute
+from scripts.pipeline import MarketDataPipeline 
 
 if __name__ == "__main__":
-    execute.extract_and_load_market_data()
+    MarketDataPipeline.execute()
