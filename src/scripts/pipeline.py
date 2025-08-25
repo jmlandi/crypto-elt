@@ -1,6 +1,6 @@
-from scripts.extract import MarketDataExtractor
-from scripts.load import DataLoader
-from utils.logger import Logger
+from src.scripts.extract import MarketDataExtractor
+from src.scripts.load import DataLoader
+from src.utils.logger import Logger
 
 class MarketDataPipeline:
   filename = 'market_data'

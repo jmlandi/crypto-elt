@@ -1,5 +1,5 @@
 import requests
-from utils.logger import Logger 
+from src.utils.logger import Logger 
 import json
 from dotenv import load_dotenv
 import os
@@ -21,7 +21,7 @@ class MarketDataExtractor:
     }
     params = {
       'start': '1',
-      'limit': '3',
+      'limit': '5',
       'convert': 'USD'
     }
     
