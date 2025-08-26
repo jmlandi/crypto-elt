@@ -21,7 +21,7 @@ class MarketDataExtractor:
     }
     params = {
       'start': '1',
-      'limit': '5',
+      'limit': '200',
       'convert': 'USD'
     }
     
