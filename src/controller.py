@@ -21,11 +21,9 @@ class Controller:
       return f"Error during data refresh: {str(e)}", 500
     
   @staticmethod
-  def query_data(request):
+  def query_data(query, dataset='raw'):
     try:
       Logger.info(f"Executing query: {query}")
-      query = request.body.get('query')
-      dataset = request.body.get('dataset', 'raw')
       with duckdb.connect(f"warehouse.{dataset}") as con:
         result = con.execute(query).fetchall()
       Logger.info("Query executed successfully.")
