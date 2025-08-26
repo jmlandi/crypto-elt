@@ -1,6 +1,7 @@
+import os
 import duckdb
 import pandas as pd
-from utils.logger import Logger
+from src.utils.logger import Logger
 
 
 class DataLoader:
@@ -16,6 +17,7 @@ class DataLoader:
       return
     Logger.info(f"Saving data to {filename}...")
     df = pd.DataFrame(data)
+    os.makedirs("./data/raw", exist_ok=True)
     df.to_csv(f"./data/raw/{filename}.csv", index=False)
     Logger.info("Data saved to CSV successfully.")
 
@@ -26,7 +28,7 @@ class DataLoader:
       return
     Logger.info(f"Saving data to DuckDB table '{tablename}'...")
     df = pd.DataFrame(data)
-    with duckdb.connect('warehouse.duckdb') as con:
+    with duckdb.connect('warehouse.raw') as con:
       con.register('df', df)
       con.sql(f"CREATE OR REPLACE TABLE {tablename} AS SELECT * FROM df")
     Logger.info(f"Data saved to DuckDB table '{tablename}' successfully.")
