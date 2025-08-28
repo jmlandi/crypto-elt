@@ -7,7 +7,8 @@ class Controller:
   @staticmethod
   def root():
     Logger.info("Root endpoint accessed.")
-    return "Welcome to the Cryptocurrency Market Data Pipeline! App is running.", 200
+    message = "Welcome to the Cryptocurrency Market Data Pipeline! App is running."
+    return jsonify(message), 200
   
   @staticmethod
   def refresh_data():
@@ -15,7 +16,8 @@ class Controller:
       Logger.info("Starting data refresh...")
       MarketDataPipeline.execute()
       Logger.info("Data refresh completed successfully.")
-      return "Data refresh completed successfully.", 200
+      message = "Data refresh completed successfully."
+      return jsonify(message), 200
     except Exception as e:
       Logger.error(f"Error during data refresh: {str(e)}")
       return f"Error during data refresh: {str(e)}", 500
@@ -30,4 +32,5 @@ class Controller:
       return jsonify(result), 200
     except Exception as e:
       Logger.error(f"Error during query execution: {str(e)}")
-      return f"Error during query execution: {str(e)}", 500
+      message = f"Error during query execution: {str(e)}"
+      return jsonify(message), 500
