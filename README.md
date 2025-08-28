@@ -57,7 +57,7 @@ Typical tables created by the transform phase:
 - `normalized.coins` – core coin attributes
 - `normalized.tags` – one row per (coin, tag)
 - `normalized.platform_details` – chain/platform info per coin
-- `normalized.quotes` – latest quotes expanded by currency (USD/EUR/BRL, etc.)
+- `normalized.quotes` – quotes expanded by currency (USD/EUR/BRL, etc.)
 - `analytics.current_prices` – convenience table with latest price & ranking per currency
 
 Example: get the top 10 prices in USD
