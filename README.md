@@ -1,6 +1,6 @@
 # 🦆 Crypto ELT → DuckDB (Flask + Docker)
 
-Ingest and transform cryptocurrency market data from **CoinMarketCap** into **DuckDB**, with optional CSV/Parquet exports.
+Ingest and transform cryptocurrency market data from **CoinMarketCap** into **DuckDB**, with CSV and Parquet exports.
 <img width="100%" alt="funny duck gif" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHB3dHRhcWM0aDc5cWIwNGgxYnBhcnI1cXRxd3lhcDN4azQwbjloaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VeyCyriTsxn3i/giphy.gif" />
 
 
