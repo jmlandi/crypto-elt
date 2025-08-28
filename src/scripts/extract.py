@@ -19,18 +19,27 @@ class MarketDataExtractor:
       'Accepts': 'application/json',
       'X-CMC_PRO_API_KEY': api_key
     }
+
+    convert_list = ['USD', 'EUR', 'BRL']
+
     params = {
       'start': '1',
-      'limit': '200',
-      'convert': 'USD'
+      'limit': '50',
+      'convert': convert_list[0]
     }
     
     session = requests.Session()
     session.headers.update(headers)
 
     try:
-      response = session.get(url + '/v1/cryptocurrency/listings/latest', params=params)
-      json_data = json.loads(response.text)['data']
+      json_data = []
+      for i in range(len(convert_list)):
+        params['convert'] = convert_list[i]
+        response = session.get(url + '/v1/cryptocurrency/listings/latest', params=params)
+        Logger.debug(f"API Response Status Code: {response.status_code}")
+        response.raise_for_status()
+        json_data += json.loads(response.text)['data']
+
       Logger.info("Market data fetched successfully.")
       return json_data
     except (
