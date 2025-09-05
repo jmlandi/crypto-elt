@@ -30,8 +30,8 @@ That’s it — the service starts, pulls market data, writes to DuckDB, and per
 
 ## ⚡️ Endpoints
 
-- `/data/refresh` -> Update warehouse data.
-- `data/query` -> Query into the warehouse. Send a JSON body with "query" as key value and the query as the key value.
+- `/data/refresh`: Update warehouse data.
+- `data/query`: Query into the warehouse. Send a JSON body with "query" as key value and the query as the key value.
 
 ---
 
